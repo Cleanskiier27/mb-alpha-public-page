@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Central LLC | Infrastructure & Automation</title>
+    <meta
+      name="description"
+      content="Data Central LLC delivers cloud infrastructure, automation, and strategic technology consulting for modern operations."
+    />
+    <style>
+      :root {
+        --bg: #07151f;
+        --bg-2: #0d2230;
+        --panel: #102c3d;
+        --panel-2: #14374d;
+        --text: #edf8ff;
+        --muted: #c3dfe9;
+        --accent: #69d2ff;
+        --accent-2: #8ef0ca;
+        --border: rgba(161, 214, 240, 0.22);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, var(--bg), var(--bg-2));
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover { text-decoration: underline; }
+
+      .container {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      header {
+        border-bottom: 1px solid var(--border);
+        background: rgba(7, 21, 31, 0.78);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      nav {
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        font-size: 1.1rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        color: var(--muted);
+      }
+
+      .hero {
+        padding: 4.5rem 0 2.5rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 0.4rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(105, 210, 255, 0.08);
+        color: var(--accent-2);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 6vw, 4.5rem);
+        line-height: 1.06;
+        margin: 1rem 0 1rem;
+      }
+
+      .lead {
+        max-width: 46rem;
+        font-size: 1.08rem;
+        color: var(--muted);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.9rem 1.25rem;
+        border-radius: 0.75rem;
+        font-weight: 700;
+        border: 1px solid transparent;
+      }
+
+      .button.primary {
+        color: #062634;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      }
+
+      .button.secondary {
+        color: var(--text);
+        background: rgba(255,255,255,0.02);
+        border-color: var(--border);
+      }
+
+      .panel {
+        background: linear-gradient(180deg, var(--panel), var(--panel-2));
+        border: 1px solid var(--border);
+        border-radius: 1.1rem;
+        padding: 1.5rem;
+        box-shadow: 0 18px 42px rgba(0,0,0,0.25);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .stat {
+        padding: 1rem;
+        border-radius: 0.9rem;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.02);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .section {
+        padding: 1.5rem 0 4rem;
+      }
+
+      .check-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .check-item {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--border);
+        border-radius: 0.9rem;
+        padding: 1rem 1.1rem;
+        color: var(--muted);
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.2rem;
+      }
+
+      .card {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        padding: 1.3rem;
+      }
+
+      .card h3 {
+        margin: 0 0 0.65rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      footer {
+        padding: 2rem 0 3rem;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+      }
+
+      @media (max-width: 760px) {
+        .hero-grid,
+        .check-grid,
+        .cards,
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          flex-direction: column;
+          justify-content: center;
+          padding: 0.8rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="brand">Data Central LLC</div>
+          <div class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#services">Services</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero" id="overview">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Infrastructure + Automation</span>
+            <h1>Powering resilient systems for the next wave of operations.</h1>
+            <p class="lead">
+              Data Central LLC specializes in cloud architecture, automation, and digital operations strategy,
+              helping teams build efficient, secure, and scalable technology foundations.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="#services">Explore services</a>
+              <a class="button secondary" href="#contact">Get in touch</a>
+            </div>
+          </div>
+
+          <aside class="panel">
+            <h2>Operating focus</h2>
+            <div class="stats">
+              <div class="stat">
+                <strong>24/7</strong>
+                <span>visibility</span>
+              </div>
+              <div class="stat">
+                <strong>99.9%</strong>
+                <span>reliability mindset</span>
+              </div>
+              <div class="stat">
+                <strong>∞</strong>
+                <span>scalability</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <h2>What we do</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Cloud Infrastructure</h3>
+            <p>Design, deployment, and support for stable cloud environments built for performance, security, and growth.</p>
+          </article>
+          <article class="card">
+            <h3>Automation</h3>
+            <p>Streamline operations with orchestration, monitoring, pipelines, and repeatable deployment workflows.</p>
+          </article>
+          <article class="card">
+            <h3>Strategy & Advisory</h3>
+            <p>Translate technical complexity into practical plans that align IT systems with business objectives.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="capabilities">
+        <h2>Core capabilities</h2>
+        <div class="check-grid">
+          <div class="check-item">Cloud architecture and migration planning</div>
+          <div class="check-item">System automation and workflow design</div>
+          <div class="check-item">Operational monitoring and resiliency engineering</div>
+          <div class="check-item">AI-enabled infrastructure modernization</div>
+          <div class="check-item">Security-aware deployment practices</div>
+          <div class="check-item">Cross-functional implementation and support</div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="container">
+        Contact: <a href="mailto:hello@datacentral.example">hello@datacentral.example</a>
+      </div>
+    </footer>
+  </body>
+</html>
